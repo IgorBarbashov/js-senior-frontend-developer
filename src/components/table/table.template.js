@@ -3,27 +3,33 @@ const CODES = {
   Z: 90,
 };
 
-function toCell() {
-  return `<div class="cell" contenteditable></div>`;
+function toCell(_, colIndex) {
+  return `<div class="cell" data-colid=${colIndex} contenteditable></div>`;
 }
 
-function toColumn(col) {
+function toColumn(col, index) {
   return `
-    <div class="column">
+    <div class="column" data-colid=${index}>
       ${col}
-      <div class="col-resize" data-resize="col"></div>
+      <div class="col-resize" data-resize="col" data-id=${index}></div>
     </div>
   `;
 }
 
-function createRow(dataContent, infoContent='') {
+function createRow(dataContent, infoContent = '') {
   return `
     <div class="row">
         <div class="row-info">
           ${infoContent}
-          ${infoContent && `<div class="row-resize" data-resize="row"></div>`}
+          ${infoContent && `
+            <div
+              class="row-resize"
+              data-resize="row"
+              data-id=${infoContent}
+            ></div>
+          `}
         </div>
-        <div class="row-data">${dataContent}</div>
+        <div class="row-data" data-rowid=${infoContent}>${dataContent}</div>
     </div>
   `;
 }

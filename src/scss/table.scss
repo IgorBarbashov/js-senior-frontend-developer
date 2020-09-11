@@ -72,7 +72,7 @@
     opacity: 0;
     background: $primary-color;
 
-    &:hover {
+    &:hover, &.hover {
       opacity: 1;
     }
   }
@@ -81,7 +81,7 @@
     top: 0;
     width: 4px;
 
-    &:hover {
+    &:hover, &.hover {
       cursor: col-resize;
     }
   }
@@ -90,7 +90,7 @@
     left: 0;
     height: 4px;
 
-    &:hover {
+    &:hover, &.hover {
       cursor: row-resize;
     }
   }
